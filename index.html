@@ -33,16 +33,16 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-background:#fff;
-box-shadow:0 2px 10px rgba(0,0,0,.1);
+background:linear-gradient(135deg,#EEF4FF,#E6FFF8);
+box-shadow:0 4px 15px rgba(0,0,0,.08);
 z-index:1000;
 }
 .nav-inner{
 max-width:1200px;
 margin:auto;
-padding:18px 8%;
+padding:15px 10px;
 display:flex;
-justify-content:space-between;
+justify-content:center;
 align-items:center;
 }
 .logo{
@@ -52,17 +52,26 @@ color:var(--purple);
 }
 .nav-links{
 display:flex;
-gap:25px;
+justify-content:center;
+align-items:center;
+gap:18px;
 list-style:none;
+flex-wrap:nowrap;
 }
+
 .nav-links a{
 text-decoration:none;
 color:#555;
+font-size:17px;
 font-weight:600;
+padding:8px 12px;
 transition:.3s;
+white-space:nowrap;
 }
+
 .nav-links a:hover{
 color:var(--purple);
+}
 }
 .mode-btn{
 border:none;
@@ -145,14 +154,28 @@ box-shadow:var(--shadow);
 margin-bottom:30px;
 }
 @media(max-width:768px){
-.hero h1{font-size:38px;}
-.role{font-size:20px;}
-.nav-links{display:none;}
+.hero h1{
+font-size:38px;
+}
+
+.role{
+font-size:20px;
+}
+
+.nav-links{
+display:flex;
+gap:15px;
+justify-content:center;
+flex-wrap:wrap;
+}
 }
 </style>
 </head>
 
 <body>
+
+<nav>
+<div class="nav-inner">
 
 <ul class="nav-links">
 <li><a href="#about">About</a></li>
@@ -163,6 +186,9 @@ margin-bottom:30px;
 <li><a href="#certifications">Certificates</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
+
+</div>
+</nav>
 
 <section class="hero">
 <div class="hero-content">
@@ -197,7 +223,7 @@ LinkedIn
 
 <div class="card">
 <p style="line-height:1.9;font-size:17px;">
-I am a final-year Computer Science Engineering student at P.S.N.A College of Engineering and Technology. I am passionate about Java Full Stack Development and Generative AI. Through academic projects and internship experience, I have developed practical skills in building scalable applications and solving real-world problems. I continuously strive to learn modern technologies and contribute to innovative software solutions.
+I am a Computer Science Engineering graduate from P.S.N.A College of Engineering and Technology with a strong foundation in Java Full Stack Development and a growing interest in Generative AI. Through academic projects and industry exposure, I have developed practical skills in designing scalable applications and solving real-world challenges. I am eager to leverage my technical expertise, continuously learn emerging technologies, and contribute to innovative software solutions as a software developer.
 </p>
 </div>
 </section>
