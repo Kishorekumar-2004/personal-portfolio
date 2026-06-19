@@ -7,545 +7,509 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
-:root{
---purple:#7F77DD;
---teal:#1D9E75;
---bg:#fff;
---card:#fff;
---text:#111;
---shadow:0 10px 25px rgba(0,0,0,.1);
-}
-.dark{
---bg:#121212;
---card:#1e1e1e;
---text:#fff;
-}
-html{scroll-behavior:smooth;}
-body{
-background:var(--bg);
-color:var(--text);
-transition:.4s;
-overflow-x:hidden;
-}
-nav{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-background:linear-gradient(135deg,#EEF4FF,#E6FFF8);
-box-shadow:0 4px 15px rgba(0,0,0,.08);
-z-index:1000;
-}
-.nav-inner{
-max-width:1200px;
-margin:auto;
-padding:15px 10px;
-display:flex;
-justify-content:center;
-align-items:center;
-}
-.logo{
-font-size:28px;
-font-weight:700;
-color:var(--purple);
-}
-.nav-links{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:18px;
-list-style:none;
-flex-wrap:nowrap;
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+:root {
+    --purple: #6366f1;
+    --teal: #0d9488;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --text: #0f172a;
+    --text-muted: #475569;
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --border: #e2e8f0;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 }
 
-.nav-links a{
-text-decoration:none;
-color:#555;
-font-size:17px;
-font-weight:600;
-padding:8px 12px;
-transition:.3s;
-white-space:nowrap;
+.dark {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --text: #f8fafc;
+    --text-muted: #94a3b8;
+    --nav-bg: rgba(15, 23, 42, 0.95);
+    --border: #334155;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
 }
 
-.nav-links a:hover{
-color:var(--purple);
-}
-}
-.mode-btn{
-border:none;
-background:linear-gradient(135deg,var(--purple),var(--teal));
-padding:12px 18px;
-border-radius:30px;
-color:white;
-cursor:pointer;
-font-weight:600;
-}
-section{
-padding:100px 10%;
-}
-.hero{
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:linear-gradient(135deg,#EEEDFE,#E1F5EE,#FBEAF0);
-}
-.hero-content{
-max-width:850px;
-}
-.hero h1{
-font-size:60px;
-margin-bottom:15px;
-color:#3C3489;
-}
-.role{
-font-size:26px;
-font-weight:600;
-color:var(--teal);
-margin-bottom:25px;
-}
-.desc{
-max-width:850px;
-margin:auto;
-font-size:18px;
-line-height:2;
-color:#555;
-text-align:justify;
-padding:0 20px;
-}
-.buttons{
-margin-top:35px;
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-}
-.btn{
-padding:15px 30px;
-border-radius:30px;
-text-decoration:none;
-font-weight:600;
-transition:.3s;
-}
-.primary{
-background:linear-gradient(135deg,var(--purple),var(--teal));
-color:white;
-}
-.outline{
-border:2px solid var(--purple);
-color:var(--purple);
-}
-.btn:hover{
-transform:translateY(-4px);
-}
-.title{
-font-size:42px;
-text-align:center;
-margin-bottom:50px;
-}
-.card{
-background:var(--card);
-padding:30px;
-border-radius:20px;
-box-shadow:var(--shadow);
-margin-bottom:30px;
-}
-@media(max-width:768px){
-.hero h1{
-font-size:38px;
+body {
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
+    overflow-x: hidden;
+    line-height: 1.6;
 }
 
-.role{
-font-size:20px;
+/* Navigation Layout */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--nav-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    transition: background 0.3s, border-color 0.3s;
+}
+.nav-inner {
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--purple), var(--teal));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.nav-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+}
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 15px;
+    font-weight: 600;
+    transition: color .2s ease;
+    cursor: pointer;
+}
+.nav-links a:hover {
+    color: var(--purple);
+}
+.mode-btn {
+    border: none;
+    background: none;
+    color: var(--text);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.2s;
+}
+.mode-btn:hover {
+    transform: scale(1.1);
 }
 
-.nav-links{
-display:flex;
-gap:15px;
-justify-content:center;
-flex-wrap:wrap;
+/* Sections Structure */
+section {
+    padding: 100px 8% 80px 8%;
+    max-width: 1200px;
+    margin: 0 auto;
+    scroll-margin-top: 80px;
 }
+.title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+.title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 40px;
+    height: 4px;
+    background: var(--purple);
+    border-radius: 2px;
+}
+
+/* Scroll Animation Classes */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hero Customization */
+.hero {
+    min-height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 60px;
+    max-width: 100%;
+}
+.hero-content { max-width: 800px; }
+.hero h1 {
+    font-size: 54px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+.role {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--teal);
+    margin-bottom: 25px;
+}
+.desc {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+/* Buttons UI */
+.buttons {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.btn {
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all .2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+.btn.primary {
+    background: var(--purple);
+    color: white;
+}
+.btn.primary:hover {
+    background: #4f46e5;
+    transform: translateY(-2px);
+}
+.btn.outline {
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+}
+.btn.outline:hover {
+    background: var(--border);
+    transform: translateY(-2px);
+}
+
+/* Card Styling Elements */
+.card {
+    background: var(--card);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s, background 0.3s, border-color 0.3s;
+}
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 20px -8px rgba(0,0,0,0.15);
+}
+
+/* Technical Skill Tags */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+.tag {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+/* Grid Topologies */
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
+
+/* Dynamic Experience Timeline */
+.timeline-item { border-left: 2px solid var(--purple); padding-left: 20px; position: relative; }
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--purple);
+}
+
+/* Contact Mechanics */
+footer {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    text-align: center;
+    padding: 30px;
+    font-size: 14px;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+/* Fixed Mobile Spacing Options */
+@media(max-width: 900px){
+    .nav-inner { justify-content: center; padding: 10px; }
+    .nav-right { width: 100%; justify-content: center; gap: 15px; flex-wrap: wrap; }
+    .nav-links { gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .nav-links a { font-size: 14px; }
+    .hero h1 { font-size: 38px; }
+    section { padding: 120px 5% 60px 5%; }
 }
 </style>
 </head>
-
 <body>
 
 <nav>
-<div class="nav-inner">
-
-<ul class="nav-links">
-<li><a href="#about">About</a></li>
-<li><a href="#experience">Experience</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#education">Education</a></li>
-<li><a href="#certifications">Certificates</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-
-</div>
+    <div class="nav-inner">
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a data-scroll="about">About</a></li>
+                <li><a data-scroll="experience">Experience</a></li>
+                <li><a data-scroll="skills">Skills</a></li>
+                <li><a data-scroll="projects">Projects</a></li>
+                <li><a data-scroll="education">Education</a></li>
+                <li><a data-scroll="contact">Contact</a></li>
+            </ul>
+            <button class="mode-btn" onclick="toggleMode()" aria-label="Toggle theme">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </div>
 </nav>
 
-<section class="hero">
-<div class="hero-content">
-
-<h1>Kishore Kumar K</h1>
-
-<div class="role">
-Java Full Stack Developer
-</div>
-
-<p class="desc">
-Final-year Computer Science Engineering student with a strong foundation in Java Full Stack Development and a growing interest in Generative AI. Passionate about building scalable web applications and continuously enhancing technical expertise through hands-on projects and industry exposure. Seeking opportunities to contribute to innovative software solutions while expanding knowledge in modern technologies.
-</p>
-
-<div class="buttons">
-<a href="#contact" class="btn primary">Hire Me</a>
-
-<a href="https://github.com/Kishorekumar-2004" target="_blank" class="btn outline">
-GitHub
-</a>
-
-<a href="https://www.linkedin.com/in/kishore-kumar-2004k" target="_blank" class="btn outline">
-LinkedIn
-</a>
-</div>
-
-</div>
-</section>
-<!-- ABOUT -->
-<section id="about">
-<h2 class="title">About Me</h2>
-
-<div class="card">
-<p style="line-height:1.9;font-size:17px;">
-I am a Computer Science Engineering graduate from P.S.N.A College of Engineering and Technology with a strong foundation in Java Full Stack Development and a growing interest in Generative AI. Through academic projects and industry exposure, I have developed practical skills in designing scalable applications and solving real-world challenges. I am eager to leverage my technical expertise, continuously learn emerging technologies, and contribute to innovative software solutions as a software developer.
-</p>
-</div>
+<!-- HERO CONTAINER -->
+<section class="hero scroll-reveal" id="hero">
+    <div class="hero-content">
+        <h1>Hi, I'm Kishore Kumar K</h1>
+        <div class="role">Java Full Stack Developer</div>
+        <p class="desc">
+            Final-year Computer Science Engineering student with a strong foundation in Java Full Stack Development and a growing interest in Generative AI. Passionate about building scalable web applications and continuously enhancing technical expertise through hands-on structural design workflows.
+        </p>
+        <div class="buttons">
+            <a data-scroll="contact" class="btn primary">Get In Touch</a>
+            <a href="https://github.com/Kishorekumar-2004" target="_blank" class="btn outline"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/kishore-kumar-2004k" target="_blank" class="btn outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+    </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-<h2 class="title">Experience</h2>
-
-<div class="card">
-<h2 style="color:var(--purple);">Full Stack Web Development Intern</h2>
-<br>
-<h4>June 2025 - July 2025</h4>
-<br>
-
-<p style="line-height:1.9;text-align:justify;">
-During my Full Stack Web Development internship from June 2025 to July 2025, I developed responsive web applications using HTML, CSS, and JavaScript. I assisted in backend development and database operations, worked with MySQL and modern web technologies, improved user interface layouts, fixed application bugs, and actively participated in testing and deployment activities.
-</p>
-</div>
+<!-- ABOUT SECTION -->
+<section id="about" class="scroll-reveal">
+    <h2 class="title">About Me</h2>
+    <div class="card">
+        <p style="color: var(--text-muted); font-size: 16px; line-height: 1.8;">
+            I am a Computer Science Engineering student at P.S.N.A College of Engineering and Technology with a strong foundation in Java Full Stack Development and a growing interest in Generative AI. Through academic projects and industry exposure, I have developed practical skills in designing scalable applications and solving real-world challenges. I am eager to leverage my technical expertise and learn emerging technologies to contribute to innovative software environments.
+        </p>
+    </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills">
-
-<h2 class="title">Technical Skills</h2>
-
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;">
-
-<div class="card">
-<h2 style="color:var(--purple);margin-bottom:20px;">
-💻 Programming Language
-</h2>
-
-<div style="display:flex;flex-wrap:wrap;gap:10px;">
-<span class="btn primary">Java</span>
-</div>
-</div>
-
-<div class="card">
-<h2 style="color:var(--purple);margin-bottom:20px;">
-🎨 Frontend
-</h2>
-
-<div style="display:flex;flex-wrap:wrap;gap:10px;">
-<span class="btn primary">HTML</span>
-<span class="btn primary">CSS</span>
-<span class="btn primary">JavaScript</span>
-</div>
-</div>
-
-<div class="card">
-<h2 style="color:var(--purple);margin-bottom:20px;">
-⚙ Framework
-</h2>
-
-<div style="display:flex;flex-wrap:wrap;gap:10px;">
-<span class="btn primary">React</span>
-<span class="btn primary">Spring Boot</span>
-<span class="btn primary">Hibernate</span>
-</div>
-</div>
-
-<div class="card">
-<h2 style="color:var(--purple);margin-bottom:20px;">
-🗄 Database
-</h2>
-
-<div style="display:flex;flex-wrap:wrap;gap:10px;">
-<span class="btn primary">MongoDB</span>
-<span class="btn primary">MySQL</span>
-</div>
-</div>
-
-</div>
-</section>
-<!-- ACHIEVEMENTS -->
-<section id="achievements">
-<h2 class="title">Achievements</h2>
-
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;">
-
-<div class="card" style="text-align:center;">
-<h1>🎓</h1>
-<h2 style="margin:15px 0;color:var(--purple);">8.22 CGPA</h2>
-<p>Current B.E Computer Science Engineering GPA.</p>
-</div>
-
-<div class="card" style="text-align:center;">
-<h1>💼</h1>
-<h2 style="margin:15px 0;color:var(--purple);">Internship Completed</h2>
-<p>Successfully completed Full Stack Web Development Internship.</p>
-</div>
-
-<div class="card" style="text-align:center;">
-<h1>📜</h1>
-<h2 style="margin:15px 0;color:var(--purple);">4+ Certifications</h2>
-<p>Completed certifications from Cisco, IIT Bombay and IEEE.</p>
-</div>
-
-<div class="card" style="text-align:center;">
-<h1>🚀</h1>
-<h2 style="margin:15px 0;color:var(--purple);">3+ Projects</h2>
-<p>Built projects related to AI and Web Development.</p>
-</div>
-
-</div>
+<!-- EXPERIENCE SECTION -->
+<section id="experience" class="scroll-reveal">
+    <h2 class="title">Experience</h2>
+    <div class="timeline-item card">
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 10px;">
+            <h3 style="color: var(--purple);">Full Stack Web Development Intern</h3>
+            <span style="font-size: 14px; font-weight: 600; color: var(--teal);">June 2025 - July 2025</span>
+        </div>
+        <p style="color: var(--text-muted);">
+            Developed responsive web applications using HTML, CSS, and JavaScript. Assisted in backend orchestration, structured operations using MySQL, enhanced UI layouts, debugged codebase application hurdles, and integrated workflow steps through active verification methodologies.
+        </p>
+    </div>
 </section>
 
-
-<!-- PROJECTS -->
-<section id="projects">
-
-<h2 class="title">Projects</h2>
-
-
-<div class="card">
-
-<h2 style="color:var(--purple);">
-🛡 AI-Driven Hybrid Framework for Automated Threat Hunting
-</h2>
-
-<br>
-
-<p style="line-height:1.9;">
-Developed a cybersecurity framework that combines statistical anomaly detection and rule-based intelligence to identify network threats. Implemented modules for preprocessing, anomaly scoring, hybrid decision logic and dashboard visualization for real-time monitoring.
-</p>
-
-<br>
-
-<a href="https://github.com/Kishorekumar-2004" target="_blank" class="btn primary">
-View on GitHub
-</a>
-
-</div>
-
-
-
-<div class="card">
-
-<h2 style="color:var(--purple);">
-🤖 MiniGPT-Based Local Chat System
-</h2>
-
-<br>
-
-<p style="line-height:1.9;">
-Built an offline AI chatbot using Llama 3.1 with a Node.js backend and HTML, CSS, and JavaScript frontend. The application supports local execution, message history and privacy-focused interactions.
-</p>
-
-<br>
-
-<a href="https://github.com/Kishorekumar-2004/Offline-llm-chatbot" target="_blank" class="btn primary">
-View on GitHub
-</a>
-
-</div>
-
-
-
-<div class="card">
-
-<h2 style="color:var(--purple);">
-🌐 Personal Portfolio Website
-</h2>
-
-<br>
-
-<p style="line-height:1.9;">
-Designed and developed a responsive portfolio website using HTML, CSS and JavaScript to showcase skills, projects, education and contact information with a modern user interface.
-</p>
-
-<br>
-
-<a href="https://github.com/Kishorekumar-2004/personal-portfolio" target="_blank" class="btn primary">
-View on GitHub
-</a>
-
-</div>
-</section>
-<!-- EDUCATION -->
-<section id="education">
-<h2 class="title">Education</h2>
-
-<div style="max-width:900px;margin:auto;">
-
-<div class="card">
-<h2 style="color:var(--purple);">B.E Computer Science Engineering</h2>
-<br>
-<h4>P.S.N.A College of Engineering and Technology</h4>
-<br>
-<p>2023 - 2026</p>
-<br>
-<p><b>CGPA :</b> 8.22 / 10</p>
-</div>
-
-<div class="card">
-<h2 style="color:var(--purple);">Diploma in Computer Engineering</h2>
-<br>
-<h4>Rathnavel Subramaniam Polytechnic College</h4>
-<br>
-<p>2020 - 2023</p>
-<br>
-<p><b>CGPA :</b> 9.4 / 10</p>
-</div>
-
-<div class="card">
-<h2 style="color:var(--purple);">Higher Secondary Education</h2>
-<br>
-<h4>PRNP Vidhya Mandhir HR.SEC School</h4>
-<br>
-<p>2019 - 2020</p>
-<br>
-<p><b>Percentage :</b> 64%</p>
-</div>
-
-</div>
+<!-- SKILLS SECTION -->
+<section id="skills" class="scroll-reveal">
+    <h2 class="title">Technical Skills</h2>
+    <div class="grid-4">
+        <div class="card">
+            <h4 style="color: var(--purple);">Languages</h4>
+            <div class="tags-container"><span class="tag">Java</span></div>
+        </div>
+        <div class="card">
+            <h4 style="color: var(--purple);">Frontend</h4>
+            <div class="tags-container">
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">JavaScript</span>
+            </div>
+        </div>
+        <div class="card">
+            <h4 style="color: var(--purple);">Frameworks</h4>
+            <div class="tags-container">
+                <span class="tag">React</span>
+                <span class="tag">Spring Boot</span>
+                <span class="tag">Hibernate</span>
+            </div>
+        </div>
+        <div class="card">
+            <h4 style="color: var(--purple);">Databases</h4>
+            <div class="tags-container">
+                <span class="tag">MySQL</span>
+                <span class="tag">MongoDB</span>
+            </div>
+        </div>
+    </div>
 </section>
 
-
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-<h2 class="title">Certifications</h2>
-
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;">
-
-<div class="card">
-<h2 style="color:var(--purple);">🏅 Cisco Networking Academy</h2>
-<br>
-<p>Introduction to IoT and Digital Transformation</p>
-</div>
-
-<div class="card">
-<h2 style="color:var(--purple);">🏅 IIT Bombay</h2>
-<br>
-<p>Bootstrap Training</p>
-</div>
-
-<div class="card">
-<h2 style="color:var(--purple);">🏅 IIT Bombay</h2>
-<br>
-<p>Arduino Training</p>
-</div>
-
-<div class="card">
-<h2 style="color:var(--purple);">🏅 IEEE</h2>
-<br>
-<p>IEEE Xplore Training</p>
-</div>
-
-</div>
+<!-- PROJECTS SECTION -->
+<section id="projects" class="scroll-reveal">
+    <h2 class="title">Featured Projects</h2>
+    <div class="grid-2">
+        <!-- Project 1 -->
+        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <h3 style="margin-bottom: 12px; color: var(--purple);">AI-Driven Hybrid Framework for Automated Threat Hunting</h3>
+                <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 20px;">Developed a cybersecurity framework combining statistical anomaly detection and rule-based intelligence to isolate network abnormalities dynamically.</p>
+            </div>
+            <a href="https://github.com/Kishorekumar-2004/Hybrid-ids" target="_blank" class="btn outline" style="width: fit-content; padding: 8px 16px;">Code <i class="fas fa-external-link-alt" style="font-size:12px;"></i></a>
+        </div>
+        <!-- Project 2 -->
+        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <h3 style="margin-bottom: 12px; color: var(--purple);">MiniGPT-Based Local Chat System</h3>
+                <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 20px;">Built an offline conversational AI portal utilizing Llama 3.1 with a structured Node.js pipeline backend ensuring privacy-first caching layouts.</p>
+            </div>
+            <a href="https://github.com/Kishorekumar-2004/Offline-llm-chatbot" target="_blank" class="btn outline" style="width: fit-content; padding: 8px 16px;">Code <i class="fas fa-external-link-alt" style="font-size:12px;"></i></a>
+        </div>
+        <!-- Project 3 -->
+        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <h3 style="margin-bottom: 12px; color: var(--purple);">Personal Portfolio Website</h3>
+                <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 20px;">Designed and developed a responsive portfolio website using refined tokens, modern layout spacing grids, and custom theme switches.</p>
+            </div>
+            <a href="https://github.com/Kishorekumar-2004/personal-portfolio" target="_blank" class="btn outline" style="width: fit-content; padding: 8px 16px;">Code <i class="fas fa-external-link-alt" style="font-size:12px;"></i></a>
+        </div>
+        <!-- Project 4 -->
+        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <h3 style="margin-bottom: 12px; color: var(--purple);">To-Do List Application</h3>
+                <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 20px;">Built a browser-persisted task manager using pure JavaScript DOM methods, contentEditable fields, and localStorage APIs for offline persistence.</p>
+            </div>
+            <a href="https://github.com/Kishorekumar-2004/Todo-List-App" target="_blank" class="btn outline" style="width: fit-content; padding: 8px 16px;">Code <i class="fas fa-external-link-alt" style="font-size:12px;"></i></a>
+        </div>
+    </div>
 </section>
 
-
-<!-- CONTACT -->
-<section id="contact" style="background:linear-gradient(135deg,#3C3489,#085041);color:white;text-align:center;">
-
-<h2 class="title">Let's Connect</h2>
-
-<p style="font-size:18px;">
-Open to internships, collaborations and exciting opportunities.
-</p>
-
-<br><br>
-
-<div style="display:flex;justify-content:center;gap:25px;flex-wrap:wrap;">
-
-<a href="mailto:kishoredg1@gmail.com" class="btn primary">
-<i class="fas fa-envelope"></i> Email
-</a>
-
-<a href="tel:+918681077477" class="btn primary">
-<i class="fas fa-phone"></i> Call
-</a>
-
-<a href="https://github.com/Kishorekumar-2004" target="_blank" class="btn primary">
-<i class="fab fa-github"></i> GitHub
-</a>
-
-<a href="https://www.linkedin.com/in/kishore-kumar-2004k" target="_blank" class="btn primary">
-<i class="fab fa-linkedin"></i> LinkedIn
-</a>
-
-</div>
-
-<br><br>
-
-<h3>Email</h3>
-<p>kishoredgl1@gmail.com</p>
-
-<br>
-
-<h3>Phone</h3>
-<p>+91 8681077477</p>
-
+<!-- EDUCATION SECTION -->
+<section id="education" class="scroll-reveal">
+    <h2 class="title">Education</h2>
+    <div class="grid-3">
+        <div class="card">
+            <span style="font-size: 12px; color: var(--teal); font-weight: 700;">2023 - 2026</span>
+            <h3 style="margin: 5px 0;">B.E CSE</h3>
+            <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 10px;">P.S.N.A College of Engineering & Tech</p>
+            <strong style="color: var(--purple);">CGPA: 8.22/10</strong>
+        </div>
+        <div class="card">
+            <span style="font-size: 12px; color: var(--teal); font-weight: 700;">2020 - 2023</span>
+            <h3 style="margin: 5px 0;">Diploma Comp Eng</h3>
+            <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 10px;">RVS Polytechnic College</p>
+            <strong style="color: var(--purple);">CGPA: 9.4/10</strong>
+        </div>
+        <div class="card">
+            <span style="font-size: 12px; color: var(--teal); font-weight: 700;">2019 - 2020</span>
+            <h3 style="margin: 5px 0;">HSC Schooling</h3>
+            <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 10px;">PRNP Vidhya Mandhir Higher Sec</p>
+            <strong style="color: var(--purple);">Score: 64%</strong>
+        </div>
+    </div>
 </section>
 
+<!-- CONTACT SECTION -->
+<section id="contact" class="scroll-reveal" style="text-align: center;">
+    <h2 class="title">Let's Connect</h2>
+    <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 30px auto;">
+        I am currently looking for full-time software engineering roles and internship opportunities. Drop me an email or call!
+    </p>
+    
+    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+        <a href="mailto:kishoredgl1@gmail.com" class="btn primary"><i class="fas fa-envelope"></i> kishoredgl1@gmail.com</a>
+        <a href="tel:+918681077477" class="btn outline"><i class="fas fa-phone"></i> +91 8681077477</a>
+    </div>
+</section>
 
 <!-- FOOTER -->
-<footer style="background:#111;color:white;text-align:center;padding:40px;">
-
-<h2>KISHORE KUMAR K</h2>
-
-<br>
-
-<p>
-Java Full Stack Developer
-</p>
-
-<br>
-
-<p>
-© 2026 All Rights Reserved
-</p>
-
-<br>
-
+<footer>
+    <p>Kishore Kumar K. All Rights Reserved.</p>
 </footer>
 
-
 <script>
+// Toggle Theme (Dark / Light Mode Settings)
 function toggleMode(){
-document.body.classList.toggle("dark");
+    document.body.classList.toggle("dark");
+    const icon = document.querySelector(".mode-btn i");
+    if(document.body.classList.contains("dark")) {
+        icon.className = "fas fa-sun";
+    } else {
+        icon.className = "fas fa-moon";
+    }
 }
+
+// Seamless Precise Smooth Scrolling Handler Configuration
+document.querySelectorAll('[data-scroll]').forEach(element => {
+    element.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('data-scroll');
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+            const navHeight = document.querySelector('nav').offsetHeight;
+            const targetPosition = targetSection.offsetTop - navHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Scroll Reveal Observer Logic
+const revealElements = document.querySelectorAll('.scroll-reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, {
+    threshold: 0.15,
+    rootMargin: "0px 0px -50px 0px"
+});
+
+revealElements.forEach(element => {
+    revealObserver.observe(element);
+});
+
+// Run automatically once on load to show upper fold items
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        const heroSection = document.getElementById('hero');
+        if(heroSection) heroSection.classList.add('active');
+    }, 100);
+});
 </script>
 
 </body>
